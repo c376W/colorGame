@@ -1,0 +1,54 @@
+body{
+	background-color: black;
+}
+
+h2{
+	color:white;
+	text-align: center;
+	margin:0;
+	padding:2px;
+}
+
+h5{
+	color:#6490d6;
+	margin:0;
+
+}
+
+
+.square{
+	background-color: purple;
+	width:150px;
+	height:150px;
+	border-radius: 15px;
+	margin:10px;
+}
+
+.container{
+	padding-top: 20px;
+}
+
+.row{
+	justify-content: center;
+}
+
+.menu{
+	margin: 0 10%;
+}
+
+.menu-bk{
+	background-color: white;
+}
+
+.invisible{
+	background-color:black;
+}
+
+#title{
+	background-color: #6490d6;
+	transition: all 0.4s ease-in-out;
+}
+
+#message{
+	width:100px;
+}
