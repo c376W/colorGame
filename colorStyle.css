@@ -44,6 +44,38 @@ h5{
 	background-color:black;
 }
 
+.btnOrigin{
+	border:0px;
+	background-color: white;
+	color:#6490d6;
+	transition-duration: 0.4s;
+}
+
+.btnOrigin:focus{
+	outline: 0;
+}
+
+
+.btnOrigin:hover{
+	background-color: #6490d6;
+	color:white;
+	border: 0px;
+
+}
+
+.selected{
+	border:0px;
+	background-color: #6490d6;
+	color:white;
+}
+
+
+/**:focus {
+    outline: 0 !important;
+}
+*/
+
+
 #title{
 	background-color: #6490d6;
 	transition: all 0.4s ease-in-out;
@@ -52,3 +84,8 @@ h5{
 #message{
 	width:100px;
 }
+
+#easyM{
+	margin-right:2px;
+}
+

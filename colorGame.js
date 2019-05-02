@@ -23,7 +23,7 @@ for(var i =0; i<colors.length; i++){
 			paintAll(pickedColor);
 			title.style.backgroundColor=pickedColor;
 			message.textContent="Correct!";
-			newColor.textContent="PLAY AGAIN?";
+			newColor.innerHTML="<strong>PLAY AGAIN?</strong>";
 
 		} else{
 			this.style.backgroundColor="black";
@@ -34,8 +34,10 @@ for(var i =0; i<colors.length; i++){
 };
 
 	//New color event:
+		//Click
 newColor.addEventListener("click", function(){
 	title.style.backgroundColor="#6490d6";
+	newColor.style.border="white";
 	colors=assignColor(mode);
 	if(mode==="hard"){
 		pickedColor=colors[Math.floor(Math.random()*6)];
@@ -47,12 +49,17 @@ newColor.addEventListener("click", function(){
 	for(var i =0; i<colors.length; i++){
 		squares[i].style.backgroundColor=colors[i];
 	}
-	newColor.textContent="NEW COLORS";
+	newColor.innerHTML="<strong>NEW COLORS</strong>";
 	message.textContent="";
 
 });
+
+
+
 	//Easy/Hard mode event:
 easyM.addEventListener("click",function(){
+	easyM.classList.add("selected");
+	hardM.classList.remove("selected");
 	colors=[];
 	for(var i =0; i<6; i++){
 		colors.push("black");
@@ -60,6 +67,7 @@ easyM.addEventListener("click",function(){
 	for(var i =0; i<colors.length; i++){
 		squares[i].style.backgroundColor=colors[i];
 	}
+
 
 	l3rows.classList.add("invisible");
 	mode="easy";
@@ -71,11 +79,13 @@ easyM.addEventListener("click",function(){
 		squares[i].style.backgroundColor=colors[i];
 	}
 	
-	newColor.textContent="NEW COLORS";
+	newColor.innerHTML="<strong>NEW COLORS</strong>";
 	message.textContent="";
 });
 
 hardM.addEventListener("click",function(){
+	hardM.classList.add("selected");
+	easyM.classList.remove("selected");
 	mode="hard";
 	colors=assignColor(mode);
 	pickedColor=colors[Math.floor(Math.random()*6)];
@@ -85,7 +95,7 @@ hardM.addEventListener("click",function(){
 		squares[i].style.backgroundColor=colors[i];
 	}
 	l3rows.classList.remove("invisible");
-	newColor.textContent="NEW COLORS";
+	newColor.innerHTML="<strong>NEW COLORS</strong>";
 	message.textContent="";
 })
 
