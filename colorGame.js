@@ -22,12 +22,12 @@ for(var i =0; i<colors.length; i++){
 		if(pickedColor===this.style.backgroundColor){
 			paintAll(pickedColor);
 			title.style.backgroundColor=pickedColor;
-			message.textContent="Correct!";
+			message.innerHTML="<strong>Correct!</strong>";
 			newColor.innerHTML="<strong>PLAY AGAIN?</strong>";
 
 		} else{
 			this.style.backgroundColor="black";
-			message.textContent="Try again!";
+			message.innerHTML="<strong>TRY AGAIN!</strong>";
 		}
 
 	})
@@ -36,7 +36,7 @@ for(var i =0; i<colors.length; i++){
 	//New color event:
 		//Click
 newColor.addEventListener("click", function(){
-	title.style.backgroundColor="#6490d6";
+	title.style.backgroundColor="steelblue";
 	newColor.style.border="white";
 	colors=assignColor(mode);
 	if(mode==="hard"){
@@ -74,7 +74,7 @@ easyM.addEventListener("click",function(){
 	colors=assignColor(mode);
 	pickedColor=colors[Math.floor(Math.random()*3)];
 	colorDisplay.textContent=pickedColor.toUpperCase();
-	title.style.backgroundColor="#6490d6";
+	title.style.backgroundColor="#steelblue";
 	for(var i =0; i<colors.length; i++){
 		squares[i].style.backgroundColor=colors[i];
 	}
@@ -90,7 +90,7 @@ hardM.addEventListener("click",function(){
 	colors=assignColor(mode);
 	pickedColor=colors[Math.floor(Math.random()*6)];
 	colorDisplay.textContent=pickedColor.toUpperCase();
-	title.style.backgroundColor="#6490d6";
+	title.style.backgroundColor="#steelblue";
 	for(var i =0; i<colors.length; i++){
 		squares[i].style.backgroundColor=colors[i];
 	}

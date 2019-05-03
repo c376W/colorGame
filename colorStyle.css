@@ -1,5 +1,5 @@
 body{
-	background-color: black;
+	background-color: #232323;
 	width:100%;
 }
 
@@ -8,12 +8,6 @@ h2{
 	text-align: center;
 	margin:0;
 	padding:2px;
-}
-
-h5{
-	color:#6490d6;
-	margin:0;
-
 }
 
 
@@ -32,14 +26,13 @@ h5{
 
 .row{
 	justify-content: center;
+	margin:0;
 }
 
 .menu{
-	margin: 0 10%;
-}
-
-.menu-bk{
+	margin: 0;
 	background-color: white;
+	text-align: center;
 }
 
 .invisible{
@@ -49,7 +42,7 @@ h5{
 .btnOrigin{
 	border:0px;
 	background-color: white;
-	color:#6490d6;
+	color:steelblue;
 	transition-duration: 0.4s;
 }
 
@@ -57,9 +50,13 @@ h5{
 	outline: 0;
 }
 
+/**:focus {
+    outline: 0 !important;
+}
+*/
 
 .btnOrigin:hover{
-	background-color: #6490d6;
+	background-color: steelblue;
 	color:white;
 	border: 0px;
 
@@ -71,19 +68,12 @@ h5{
 	color:white;
 }
 
-.row{
-	margin:0;
-}
 
 
-/**:focus {
-    outline: 0 !important;
-}
-*/
 
 
 #title{
-	background-color: #6490d6;
+	background-color: steelblue;
 	transition: all 0.4s ease-in-out;
 }
 
@@ -91,6 +81,8 @@ h5{
 
 #message{
 	width:100px;
+	display:block;
+	margin:0 auto;
 }
 
 #easyM{
@@ -98,7 +90,26 @@ h5{
 }
 
 
-@media (min-width: 250px){
-	
+#newColor{
+	margin:0 3%;
+}
+
+#modes{
+	display:block;
+	margin:0 3%;
+}
+
+
+@media(min-width:450px){
+	#newColors{
+		display:inline-block;
+	}
+	#modes{
+		display:inline-block;
+	}
+	#message{
+		display:inline-block;
+		margin:0 3%;
+	}
 }
 
