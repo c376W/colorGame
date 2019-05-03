@@ -1,5 +1,6 @@
 body{
 	background-color: black;
+	width:100%;
 }
 
 h2{
@@ -24,9 +25,10 @@ h5{
 	margin:10px;
 }
 
-.container{
+/*.container{
 	padding-top: 20px;
-}
+	margin: 0px;
+}*/
 
 .row{
 	justify-content: center;
@@ -69,6 +71,10 @@ h5{
 	color:white;
 }
 
+.row{
+	margin:0;
+}
+
 
 /**:focus {
     outline: 0 !important;
@@ -81,11 +87,18 @@ h5{
 	transition: all 0.4s ease-in-out;
 }
 
+
+
 #message{
 	width:100px;
 }
 
 #easyM{
 	margin-right:2px;
+}
+
+
+@media (min-width: 250px){
+	
 }
 
