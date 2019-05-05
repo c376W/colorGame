@@ -26,7 +26,7 @@ for(var i =0; i<colors.length; i++){
 			newColor.innerHTML="<strong>PLAY AGAIN?</strong>";
 
 		} else{
-			this.style.backgroundColor="black";
+			this.style.backgroundColor="#232323";
 			message.innerHTML="<strong>TRY AGAIN!</strong>";
 		}
 
@@ -58,11 +58,15 @@ newColor.addEventListener("click", function(){
 
 	//Easy/Hard mode event:
 easyM.addEventListener("click",function(){
+	console.log("right.");
+	title.style.backgroundColor="steelblue";
+	console.log("right1");
 	easyM.classList.add("selected");
+	console.log("right2");
 	hardM.classList.remove("selected");
 	colors=[];
 	for(var i =0; i<6; i++){
-		colors.push("black");
+		colors.push("#232323");
 	}
 	for(var i =0; i<colors.length; i++){
 		squares[i].style.backgroundColor=colors[i];
@@ -74,16 +78,21 @@ easyM.addEventListener("click",function(){
 	colors=assignColor(mode);
 	pickedColor=colors[Math.floor(Math.random()*3)];
 	colorDisplay.textContent=pickedColor.toUpperCase();
-	title.style.backgroundColor="#steelblue";
+	
 	for(var i =0; i<colors.length; i++){
 		squares[i].style.backgroundColor=colors[i];
 	}
 	
 	newColor.innerHTML="<strong>NEW COLORS</strong>";
 	message.textContent="";
+	
 });
 
+
+
+
 hardM.addEventListener("click",function(){
+	title.style.backgroundColor="steelblue";
 	hardM.classList.add("selected");
 	easyM.classList.remove("selected");
 	mode="hard";
@@ -100,6 +109,9 @@ hardM.addEventListener("click",function(){
 })
 
 
+
+
+
 //functions:
 
 	//When right color is chosen, change the colors of all the squares.
@@ -111,14 +123,32 @@ const paintAll=(color)=>{
 
 	//Create random colors:
 function randomColor(){
+	// if(mode==="easy"){
 	let r=Math.floor(Math.random()*256);
-	let g=Math.floor(Math.random()*256);
-	let b=Math.floor(Math.random()*256);
+	let	g=Math.floor(Math.random()*256);
+	let	b=Math.floor(Math.random()*256);
+	// } else{
+	// 	r=Math.floor(Math.random()*256);
+	// 	g=Math.floor(Math.random()*256);
+	// 	b=Math.floor(Math.random()*256);
+	// }
 	return "rgb("+r+", "+g+", "+b+")";
 }
+	
+	//Hard mode assigning colors:
+// function hardMode(str){
+// 	r=str[4];
+// 	g=str[7];
+// 	b=str[10];
+
+// }
+
+
+
 	//Assigning random colors to each square:
 function assignColor(mode){
 	var arr=[];
+	var preColor="";
 	if(mode==="hard"){
 		for(var x=0;x<6;x++){
 			randomClr=randomColor();
