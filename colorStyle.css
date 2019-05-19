@@ -8,6 +8,7 @@ h2{
 	text-align: center;
 	margin:0;
 	padding:2px;
+	font-family: 'Permanent Marker', cursive;
 }
 
 
@@ -83,6 +84,9 @@ h2{
 	width:100px;
 	display:block;
 	margin:0 auto;
+	color: steelblue;
+	font-family: 'Permanent Marker', cursive;
+
 }
 
 #easyM{
@@ -92,15 +96,17 @@ h2{
 
 #newColor{
 	margin:0 3%;
+	font-family: 'Permanent Marker', cursive;
 }
 
 #modes{
 	display:block;
 	margin:0 3%;
+	font-family: 'Permanent Marker', cursive;
 }
 
 
-@media(min-width:450px){
+@media(min-width:449px){
 	#newColors{
 		display:inline-block;
 	}
