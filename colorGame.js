@@ -10,6 +10,7 @@ var message=document.querySelector("#message");
 var easyM=document.querySelector("#easyM");
 var hardM=document.querySelector("#hardM");
 var l3rows=document.querySelector("#l3rows");
+var hearts=3;
 
 //Events
 
@@ -28,6 +29,7 @@ for(var i =0; i<colors.length; i++){
 		} else{
 			this.style.backgroundColor="#232323";
 			message.innerHTML="<strong>TRY AGAIN!</strong>";
+			hearts--;
 		}
 
 	})
@@ -36,7 +38,7 @@ for(var i =0; i<colors.length; i++){
 	//New color event:
 		//Click
 newColor.addEventListener("click", function(){
-	title.style.backgroundColor="steelblue";
+	title.style.backgroundColor="#e577a5";
 	newColor.style.border="white";
 	colors=assignColor(mode);
 	if(mode==="hard"){
@@ -59,7 +61,7 @@ newColor.addEventListener("click", function(){
 	//Easy/Hard mode event:
 easyM.addEventListener("click",function(){
 	console.log("right.");
-	title.style.backgroundColor="steelblue";
+	title.style.backgroundColor="#e577a5";
 	console.log("right1");
 	easyM.classList.add("selected");
 	console.log("right2");
@@ -92,14 +94,14 @@ easyM.addEventListener("click",function(){
 
 
 hardM.addEventListener("click",function(){
-	title.style.backgroundColor="steelblue";
+	title.style.backgroundColor="#e577a5";
 	hardM.classList.add("selected");
 	easyM.classList.remove("selected");
 	mode="hard";
 	colors=assignColor(mode);
 	pickedColor=colors[Math.floor(Math.random()*6)];
 	colorDisplay.textContent=pickedColor.toUpperCase();
-	title.style.backgroundColor="#steelblue";
+	title.style.backgroundColor="#e577a5";
 	for(var i =0; i<colors.length; i++){
 		squares[i].style.backgroundColor=colors[i];
 	}
