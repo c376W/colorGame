@@ -1,0 +1,23 @@
+body{
+	display: flex;
+	height:100%;
+}
+
+html{
+	height:100%;
+}
+.container{
+	background-color:black;
+	color:white;
+	font-size:5em;
+	text-align: center;
+	height:100%;
+	width:100%;
+}
+
+.container:before{
+	background-color: black;
+}
+.container:after{
+	background-color:black;
+}

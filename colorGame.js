@@ -1,5 +1,6 @@
 // Defining variables:
 var mode="hard";
+var gg=document.querySelector(".gg");
 var colors=assignColor(mode);
 var squares=document.querySelectorAll(".square");
 var colorDisplay=document.getElementById("colorDisplay");
@@ -11,6 +12,11 @@ var easyM=document.querySelector("#easyM");
 var hardM=document.querySelector("#hardM");
 var l3rows=document.querySelector("#l3rows");
 var hearts=3;
+var heart1=document.querySelector("#heart1");
+var heart2=document.querySelector("#heart2");
+var heart3=document.querySelector("#heart3");
+var idHeart=[heart1,heart2,heart3];
+var container=document.querySelector(".container");
 
 //Events
 
@@ -20,16 +26,27 @@ for(var i =0; i<colors.length; i++){
 	squares[i].style.backgroundColor=colors[i];
 	squares[i].style.transition="all 0.4s ease-in-out";
 	squares[i].addEventListener("click", function(){
-		if(pickedColor===this.style.backgroundColor){
+		if(pickedColor===this.style.backgroundColor && hearts!==0){
 			paintAll(pickedColor);
 			title.style.backgroundColor=pickedColor;
 			message.innerHTML="<strong>Correct!</strong>";
 			newColor.innerHTML="<strong>PLAY AGAIN?</strong>";
 
 		} else{
-			this.style.backgroundColor="#232323";
-			message.innerHTML="<strong>TRY AGAIN!</strong>";
-			hearts--;
+			if(hearts>0){
+				this.style.backgroundColor="#232323";
+				message.innerHTML="<strong>TRY AGAIN!</strong>";
+				hearts--;
+				idHeart[hearts].classList.add("invisible");
+				console.log("add invisible",hearts);
+			} else{
+				// container.classList.add("invisible");
+				// gg.classList.remove("invisible");
+				
+
+
+			}
+			
 		}
 
 	})
@@ -38,6 +55,8 @@ for(var i =0; i<colors.length; i++){
 	//New color event:
 		//Click
 newColor.addEventListener("click", function(){
+	resetHeartsNum();
+	hearts=3;
 	title.style.backgroundColor="#e577a5";
 	newColor.style.border="white";
 	colors=assignColor(mode);
@@ -60,6 +79,9 @@ newColor.addEventListener("click", function(){
 
 	//Easy/Hard mode event:
 easyM.addEventListener("click",function(){
+	resetHeartsNum();
+	heart3.classList.add("invisible");
+	hearts=2;
 	console.log("right.");
 	title.style.backgroundColor="#e577a5";
 	console.log("right1");
@@ -94,6 +116,8 @@ easyM.addEventListener("click",function(){
 
 
 hardM.addEventListener("click",function(){
+	resetHeartsNum();
+	hearts=3;
 	title.style.backgroundColor="#e577a5";
 	hardM.classList.add("selected");
 	easyM.classList.remove("selected");
@@ -169,5 +193,12 @@ function resetColors(arr,mode){
 	arr=[];
 	arr=assignColor(mode);
 	return arr;
+}
+
+// Resetting number of hearts:
+function resetHeartsNum(){
+	idHeart.forEach(function(heart){
+		heart.classList.remove("invisible");
+	})
 }
 
