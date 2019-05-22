@@ -1,5 +1,6 @@
 // Defining variables:
 var mode="hard";
+var normal=document.querySelector(".normal");
 var gg=document.querySelector(".gg");
 var colors=assignColor(mode);
 var squares=document.querySelectorAll(".square");
@@ -16,6 +17,7 @@ var heart1=document.querySelector("#heart1");
 var heart2=document.querySelector("#heart2");
 var heart3=document.querySelector("#heart3");
 var idHeart=[heart1,heart2,heart3];
+var life=document.querySelector(".life");
 var container=document.querySelector(".container");
 
 //Events
@@ -33,15 +35,25 @@ for(var i =0; i<colors.length; i++){
 			newColor.innerHTML="<strong>PLAY AGAIN?</strong>";
 
 		} else{
-			if(hearts>0){
+			if(hearts>1){
 				this.style.backgroundColor="#232323";
 				message.innerHTML="<strong>TRY AGAIN!</strong>";
 				hearts--;
 				idHeart[hearts].classList.add("invisible");
-				console.log("add invisible",hearts);
-			} else{
-				// container.classList.add("invisible");
-				// gg.classList.remove("invisible");
+				console.log("in still have lives:",hearts);
+			} else if (hearts<=1){
+				console.log("in if num of hearts:", hearts);
+				colors=[];
+				for(var i =0; i<6; i++){
+					colors.push("#232323");
+				}		
+				for(var i =0; i<colors.length; i++){
+					squares[i].style.backgroundColor=colors[i];
+				}
+				life.classList.add("invisible");
+				normal.textContent="GAME OVER";
+				normal.classList.remove("normal");
+				normal.classList.add("gg");
 				
 
 
@@ -56,6 +68,7 @@ for(var i =0; i<colors.length; i++){
 		//Click
 newColor.addEventListener("click", function(){
 	resetHeartsNum();
+	resetEverthing();
 	hearts=3;
 	title.style.backgroundColor="#e577a5";
 	newColor.style.border="white";
@@ -80,6 +93,7 @@ newColor.addEventListener("click", function(){
 	//Easy/Hard mode event:
 easyM.addEventListener("click",function(){
 	resetHeartsNum();
+	resetEverthing();
 	heart3.classList.add("invisible");
 	hearts=2;
 	console.log("right.");
@@ -117,6 +131,7 @@ easyM.addEventListener("click",function(){
 
 hardM.addEventListener("click",function(){
 	resetHeartsNum();
+	resetEverthing();
 	hearts=3;
 	title.style.backgroundColor="#e577a5";
 	hardM.classList.add("selected");
@@ -202,3 +217,12 @@ function resetHeartsNum(){
 	})
 }
 
+//Resetting everything after the game is over.
+function resetEverthing(){
+	container.classList.remove("invisible");
+	life.classList.remove("invisible");
+	normal.textContent="You have 3 lives in level Hard;You have 2 lives in level Easy.";
+	normal.classList.add("normal");
+	normal.classList.remove("gg");
+
+}
