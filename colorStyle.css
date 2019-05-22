@@ -11,6 +11,14 @@ h2{
 	font-family: 'Permanent Marker', cursive;
 }
 
+p, #colorDisplay{
+	text-align: center;
+	color:white;
+	padding:5px;
+	margin:0 auto;
+	font-family: 'Courgette', cursive;
+}
+
 .life{
 	margin:4% auto 0 auto;
 	width:50%;
