@@ -31,8 +31,15 @@ for(var i =0; i<colors.length; i++){
 		if(pickedColor===this.style.backgroundColor && hearts!==0){
 			paintAll(pickedColor);
 			title.style.backgroundColor=pickedColor;
+			// resetButtonColor(newColor,pickedColor);
+			// resetButtonColor(easyM,pickedColor);
+			// resetButtonColor(hardM,pickedColor);
+			// newColor.style.color=pickedColor;
+			// easyM.style.color=pickedColor;
+			// hardM.style.color=pickedColor;
+			// message.style.color=pickedColor;
 			message.innerHTML="<strong>Correct!</strong>";
-			newColor.innerHTML="<strong>PLAY AGAIN?</strong>";
+			newColor.innerHTML="<strong>Next Game?</strong>";
 
 		} else{
 			if(hearts>1 && this.style.backgroundColor!=="rgb(35, 35, 35)"){
@@ -57,6 +64,8 @@ for(var i =0; i<colors.length; i++){
 				normal.textContent="GAME OVER";
 				normal.classList.remove("normal");
 				normal.classList.add("gg");
+				message.textContent="";
+				newColor.innerHTML="<strong>NEW GAME?</strong>";
 				
 
 
@@ -72,6 +81,7 @@ for(var i =0; i<colors.length; i++){
 newColor.addEventListener("click", function(){
 	resetHeartsNum();
 	resetEverthing();
+	// resetButtonColor(newColor,"#e577a5");
 	hearts=3;
 	title.style.backgroundColor="#e577a5";
 	newColor.style.border="white";
@@ -97,6 +107,7 @@ newColor.addEventListener("click", function(){
 easyM.addEventListener("click",function(){
 	resetHeartsNum();
 	resetEverthing();
+	// resetButtonColor(easyM,"#e577a5");
 	heart3.classList.add("invisible");
 	hearts=2;
 	console.log("right.");
@@ -135,6 +146,7 @@ easyM.addEventListener("click",function(){
 hardM.addEventListener("click",function(){
 	resetHeartsNum();
 	resetEverthing();
+	// resetButtonColor(hardM,"#e577a5");
 	hearts=3;
 	title.style.backgroundColor="#e577a5";
 	hardM.classList.add("selected");
@@ -222,10 +234,34 @@ function resetHeartsNum(){
 
 //Resetting everything after the game is over.
 function resetEverthing(){
+	// newColor.addEventListener("mouseenter", function(){
+	// 	newColor.style.color="white";
+	// 	newColor.style.backgroundColor="#e577a5";
+	// });
+	// newColor.addEventListener("mouseleave", function(){
+	// 	newColor.style.color="#e577a5";
+	// 	newColor.style.backgroundColor="white";
+	// });
+
+
+	// message.style.color="#e577a5";
+	// easyM.style.color="#e577a5";
+	// hardM.style.color="#e577a5";
 	container.classList.remove("invisible");
 	life.classList.remove("invisible");
 	normal.textContent="You have 3 lives in level Hard;You have 2 lives in level Easy.";
 	normal.classList.add("normal");
 	normal.classList.remove("gg");
-
 }
+
+//Resetting buttonColor
+// function resetButtonColor(btn,colorVal){
+// 	btn.addEventListener("mouseenter", function(){
+// 		btn.style.color="white";
+// 		btn.style.backgroundColor=colorVal;
+// 	});
+// 	btn.addEventListener("mouseleave", function(){
+// 		btn.style.color=colorVal;
+// 		btn.style.backgroundColor="white";
+// 	});
+// }
