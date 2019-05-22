@@ -1,0 +1,4 @@
+1. When correct, unify all the colors.
+2. Play again, not just new game.
+3. Give players instructions on how to play.
+4. Give players explicit reminders of whether they win or not.
