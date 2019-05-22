@@ -24,6 +24,7 @@ h2{
 	font-family: 'Permanent Marker', cursive;
 	font-size:5em;
 	text-align: center;
+	transition-duration: 0.4s;
 }
   .heart {
   	display: inline-block;
@@ -190,6 +191,11 @@ h2{
 	}
 }
 
+@media(max-width:521px){
+	.gg{
+		font-size: 3em;
+	}
+}
 
   @keyframes backdiv {
     50% {

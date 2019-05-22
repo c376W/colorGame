@@ -35,13 +35,16 @@ for(var i =0; i<colors.length; i++){
 			newColor.innerHTML="<strong>PLAY AGAIN?</strong>";
 
 		} else{
-			if(hearts>1){
+			if(hearts>1 && this.style.backgroundColor!=="rgb(35, 35, 35)"){
 				this.style.backgroundColor="#232323";
 				message.innerHTML="<strong>TRY AGAIN!</strong>";
-				hearts--;
+				
+					console.log(this.style.backgroundColor);
+					hearts--;	
+				
 				idHeart[hearts].classList.add("invisible");
 				console.log("in still have lives:",hearts);
-			} else if (hearts<=1){
+			} else if (hearts<=1 && this.style.backgroundColor!=="rgb(35, 35, 35)"){
 				console.log("in if num of hearts:", hearts);
 				colors=[];
 				for(var i =0; i<6; i++){
