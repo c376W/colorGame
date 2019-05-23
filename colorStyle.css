@@ -73,6 +73,10 @@ p, #colorDisplay{
     left: 0px;
   }
 
+.wide{
+	width:100%;
+	text-align: center;
+}
 
 
 .square{
@@ -162,7 +166,7 @@ p, #colorDisplay{
 
 
 #message{
-	width:100px;
+	width:100%;
 	display:block;
 	margin:0 auto;
 	color: #e577a5;
