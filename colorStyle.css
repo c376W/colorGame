@@ -258,6 +258,17 @@ i{
 		border-radius: 40px;
 		margin:10px;
 	}
+	.fa-check{
+		color:#6fe887;
+		margin:5px 0 5px 0;
+		font-size: 4rem;
+	}
+
+	.fa-times{
+		color:#e54751;
+		margin:5px 0 5px 0;
+		font-size: 5rem;
+	}
 }
 @media(max-width:330px){
 	.square{
@@ -266,6 +277,17 @@ i{
 		height:50px;
 		border-radius: 40px;
 		margin:10px;
+	}
+	.fa-check{
+		color:#6fe887;
+		margin:5px 0 5px 0;
+		font-size: 2rem;
+	}
+
+	.fa-times{
+		color:#e54751;
+		margin:5px 0 5px 0;
+		font-size: 3rem;
 	}
 }
   @keyframes backdiv {
