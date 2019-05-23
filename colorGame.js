@@ -19,6 +19,9 @@ var heart3=document.querySelector("#heart3");
 var idHeart=[heart1,heart2,heart3];
 var life=document.querySelector(".life");
 var container=document.querySelector(".container");
+var spans=document.querySelectorAll(".spans");
+var correct=0;
+
 
 //Events
 
@@ -27,6 +30,7 @@ colorDisplay.textContent=pickedColor.toUpperCase();
 for(var i =0; i<colors.length; i++){
 	squares[i].style.backgroundColor=colors[i];
 	squares[i].style.transition="all 0.4s ease-in-out";
+	
 	squares[i].addEventListener("click", function(){
 		if(pickedColor===this.style.backgroundColor && hearts!==0){
 			paintAll(pickedColor);
@@ -38,18 +42,25 @@ for(var i =0; i<colors.length; i++){
 			// easyM.style.color=pickedColor;
 			// hardM.style.color=pickedColor;
 			// message.style.color=pickedColor;
-			message.innerHTML="<strong>Correct!</strong>";
-			newColor.innerHTML="<strong>Next Game?</strong>";
+			if(correct===0){
+				message.innerHTML="<strong>Correct!</strong>";
+				newColor.innerHTML="<strong>Next Game?</strong>";
+				this.children[0].innerHTML="<i class='fas fa-check'></i>"
+				this.children[0].classList.remove("behind");
+				this.children[0].classList.add("front");
+				correct=1;
+
+			}
+			
 
 		} else{
 			if(hearts>1 && this.style.backgroundColor!=="rgb(35, 35, 35)"){
 				this.style.backgroundColor="#232323";
 				message.innerHTML="<strong>TRY AGAIN!</strong>";
-				console.log(message);
-				console.log("thisis normal",normal);
-				
-					console.log(this.style.backgroundColor);
-					hearts--;	
+				this.children[0].classList.remove("behind");
+				this.children[0].classList.add("front");
+
+				hearts--;	
 				
 				idHeart[hearts].classList.add("invisible");
 				console.log("in still have lives:",hearts);
@@ -84,9 +95,11 @@ for(var i =0; i<colors.length; i++){
 newColor.addEventListener("click", function(){
 	resetHeartsNum();
 	resetEverthing();
+	
+	
 	// resetButtonColor(newColor,"#e577a5");
 	hearts=3;
-	title.style.backgroundColor="#e577a5";
+	title.style.backgroundColor="#05b1b7";
 	newColor.style.border="white";
 	colors=assignColor(mode);
 	if(mode==="hard"){
@@ -98,6 +111,9 @@ newColor.addEventListener("click", function(){
 	colorDisplay.textContent=pickedColor.toUpperCase();
 	for(var i =0; i<colors.length; i++){
 		squares[i].style.backgroundColor=colors[i];
+		squares[i].children[0].classList.remove("front");
+		squares[i].children[0].classList.add("behind");
+		squares[i].children[0].innerHTML="<i class='fas fa-times'></i>"
 	}
 	newColor.innerHTML="<strong>NEW COLORS</strong>";
 	message.textContent="";
@@ -110,11 +126,13 @@ newColor.addEventListener("click", function(){
 easyM.addEventListener("click",function(){
 	resetHeartsNum();
 	resetEverthing();
+	
+	
 	// resetButtonColor(easyM,"#e577a5");
 	heart3.classList.add("invisible");
 	hearts=2;
 	console.log("right.");
-	title.style.backgroundColor="#e577a5";
+	title.style.backgroundColor="#05b1b7";
 	console.log("right1");
 	easyM.classList.add("selected");
 	console.log("right2");
@@ -125,6 +143,9 @@ easyM.addEventListener("click",function(){
 	}
 	for(var i =0; i<colors.length; i++){
 		squares[i].style.backgroundColor=colors[i];
+		squares[i].children[0].classList.remove("front");
+		squares[i].children[0].classList.add("behind");
+		squares[i].children[0].innerHTML="<i class='fas fa-times'></i>"
 	}
 
 
@@ -136,6 +157,9 @@ easyM.addEventListener("click",function(){
 	
 	for(var i =0; i<colors.length; i++){
 		squares[i].style.backgroundColor=colors[i];
+
+		// spans[i].classList.remove("front");
+		// spans[i].classList.add("behind");
 	}
 	
 	newColor.innerHTML="<strong>NEW COLORS</strong>";
@@ -149,18 +173,24 @@ easyM.addEventListener("click",function(){
 hardM.addEventListener("click",function(){
 	resetHeartsNum();
 	resetEverthing();
+
+	
 	// resetButtonColor(hardM,"#e577a5");
 	hearts=3;
-	title.style.backgroundColor="#e577a5";
+	title.style.backgroundColor="#05b1b7";
 	hardM.classList.add("selected");
 	easyM.classList.remove("selected");
 	mode="hard";
 	colors=assignColor(mode);
 	pickedColor=colors[Math.floor(Math.random()*6)];
 	colorDisplay.textContent=pickedColor.toUpperCase();
-	title.style.backgroundColor="#e577a5";
+	title.style.backgroundColor="#05b1b7";
 	for(var i =0; i<colors.length; i++){
+		
 		squares[i].style.backgroundColor=colors[i];
+		squares[i].children[0].classList.remove("front");
+		squares[i].children[0].classList.add("behind");
+		squares[i].children[0].innerHTML="<i class='fas fa-times'></i>"
 	}
 	l3rows.classList.remove("invisible");
 	newColor.innerHTML="<strong>NEW COLORS</strong>";
@@ -250,6 +280,7 @@ function resetEverthing(){
 	// message.style.color="#e577a5";
 	// easyM.style.color="#e577a5";
 	// hardM.style.color="#e577a5";
+	correct=0;
 	container.classList.remove("invisible");
 	life.classList.remove("invisible");
 	normal.textContent="You have 3 lives in level Hard;You have 2 lives in level Easy.";

@@ -19,6 +19,11 @@ p, #colorDisplay{
 	font-family: 'Courgette', cursive;
 }
 
+i{
+	transition-duration: 0.4s;
+}
+
+
 .life{
 	margin:4% auto 0 auto;
 	width:50%;
@@ -80,13 +85,37 @@ p, #colorDisplay{
 
 
 .square{
+	display: flex;
 	background-color: purple;
 	width:150px;
 	height:150px;
 	border-radius: 40px;
 	margin:10px;
+	align-items: center;
+	justify-content: center;
+	
 }
 
+.behind{
+	z-index: -1;
+}
+
+.front{
+	
+	z-index: 2;
+}
+
+.fa-check{
+	color:#6fe887;
+	margin:5px 0 5px 0;
+	font-size: 7rem;
+}
+
+.fa-times{
+	color:#e54751;
+	margin:5px 0 5px 0;
+	font-size: 7rem;
+}
 /*.container{
 	padding-top: 20px;
 	margin: 0px;
@@ -113,6 +142,7 @@ p, #colorDisplay{
 .row{
 	justify-content: center;
 	margin:0;
+	display: flex;
 }
 
 .menu{
@@ -128,7 +158,7 @@ p, #colorDisplay{
 .btnOrigin{
 	border:0px;
 	background-color: white;
-	color:#e577a5;
+	color:#05b1b7;
 	transition-duration: 0.4s;
 }
 
@@ -142,7 +172,7 @@ p, #colorDisplay{
 */
 
 .btnOrigin:hover{
-	background-color: #e577a5;
+	background-color: #05b1b7;
 	color:white;
 	border: 0px;
 
@@ -150,7 +180,7 @@ p, #colorDisplay{
 
 .selected{
 	border:0px;
-	background-color: #e577a5;
+	background-color: #05b1b7;
 	color:white;
 }
 
@@ -159,7 +189,7 @@ p, #colorDisplay{
 
 
 #title{
-	background-color: #e577a5;
+	background-color: #05b1b7;
 	transition: all 0.4s ease-in-out;
 }
 
@@ -169,7 +199,7 @@ p, #colorDisplay{
 	width:100%;
 	display:block;
 	margin:0 auto;
-	color: #e577a5;
+	color: #05b1b7;
 	font-family: 'Permanent Marker', cursive;
 
 }
