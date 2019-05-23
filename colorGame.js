@@ -45,6 +45,8 @@ for(var i =0; i<colors.length; i++){
 			if(hearts>1 && this.style.backgroundColor!=="rgb(35, 35, 35)"){
 				this.style.backgroundColor="#232323";
 				message.innerHTML="<strong>TRY AGAIN!</strong>";
+				console.log(message);
+				console.log("thisis normal",normal);
 				
 					console.log(this.style.backgroundColor);
 					hearts--;	
@@ -65,6 +67,7 @@ for(var i =0; i<colors.length; i++){
 				normal.classList.remove("normal");
 				normal.classList.add("gg");
 				message.textContent="";
+				console.log("after removing",message);
 				newColor.innerHTML="<strong>NEW GAME?</strong>";
 				
 
