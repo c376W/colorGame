@@ -50,13 +50,9 @@ for(var i =0; i<colors.length; i++){
 				message.innerHTML="<strong>TRY AGAIN!</strong>";
 				this.children[0].classList.remove("behind");
 				this.children[0].classList.add("front");
-
 				hearts--;	
-				
 				idHeart[hearts].classList.add("invisible");
-				console.log("in still have lives:",hearts);
 			} else if (hearts<=1 && this.style.backgroundColor!=="rgb(35, 35, 35)"){
-				console.log("in if num of hearts:", hearts);
 				colors=[];
 				for(var i =0; i<6; i++){
 					colors.push("#232323");
@@ -64,12 +60,13 @@ for(var i =0; i<colors.length; i++){
 				for(var i =0; i<colors.length; i++){
 					squares[i].style.backgroundColor=colors[i];
 				}
+				this.children[0].classList.remove("behind");
+				this.children[0].classList.add("front");
 				life.classList.add("invisible");
 				normal.textContent="GAME OVER";
 				normal.classList.remove("normal");
 				normal.classList.add("gg");
 				message.textContent="";
-				console.log("after removing",message);
 				newColor.innerHTML="<strong>NEW GAME?</strong>";
 				
 
@@ -84,13 +81,8 @@ for(var i =0; i<colors.length; i++){
 	//New color event:
 		//Click
 newColor.addEventListener("click", function(){
-	resetHeartsNum();
 	resetEverthing();
-	
-	
-	// resetButtonColor(newColor,"#e577a5");
 	hearts=3;
-	title.style.backgroundColor="#05b1b7";
 	newColor.style.border="white";
 	colors=assignColor(mode);
 	if(mode==="hard"){
@@ -115,18 +107,12 @@ newColor.addEventListener("click", function(){
 
 	//Easy/Hard mode event:
 easyM.addEventListener("click",function(){
-	resetHeartsNum();
 	resetEverthing();
-	
-	
-	// resetButtonColor(easyM,"#e577a5");
+	mode="easy";
 	heart3.classList.add("invisible");
 	hearts=2;
-	console.log("right.");
-	title.style.backgroundColor="#05b1b7";
-	console.log("right1");
+	
 	easyM.classList.add("selected");
-	console.log("right2");
 	hardM.classList.remove("selected");
 	colors=[];
 	for(var i =0; i<6; i++){
@@ -141,16 +127,13 @@ easyM.addEventListener("click",function(){
 
 
 	l3rows.classList.add("invisible");
-	mode="easy";
+	
 	colors=assignColor(mode);
 	pickedColor=colors[Math.floor(Math.random()*3)];
 	colorDisplay.textContent=pickedColor.toUpperCase();
 	
 	for(var i =0; i<colors.length; i++){
 		squares[i].style.backgroundColor=colors[i];
-
-		// spans[i].classList.remove("front");
-		// spans[i].classList.add("behind");
 	}
 	
 	newColor.innerHTML="<strong>NEW COLORS</strong>";
@@ -162,22 +145,15 @@ easyM.addEventListener("click",function(){
 
 
 hardM.addEventListener("click",function(){
-	resetHeartsNum();
 	resetEverthing();
-
-	
-	// resetButtonColor(hardM,"#e577a5");
+	mode="hard";
 	hearts=3;
-	title.style.backgroundColor="#05b1b7";
 	hardM.classList.add("selected");
 	easyM.classList.remove("selected");
-	mode="hard";
 	colors=assignColor(mode);
 	pickedColor=colors[Math.floor(Math.random()*6)];
 	colorDisplay.textContent=pickedColor.toUpperCase();
-	title.style.backgroundColor="#05b1b7";
 	for(var i =0; i<colors.length; i++){
-		
 		squares[i].style.backgroundColor=colors[i];
 		squares[i].children[0].classList.remove("front");
 		squares[i].children[0].classList.add("behind");
@@ -203,28 +179,13 @@ const paintAll=(color)=>{
 
 	//Create random colors:
 function randomColor(){
-	// if(mode==="easy"){
 	let r=Math.floor(Math.random()*256);
 	let	g=Math.floor(Math.random()*256);
 	let	b=Math.floor(Math.random()*256);
-	// } else{
-	// 	r=Math.floor(Math.random()*256);
-	// 	g=Math.floor(Math.random()*256);
-	// 	b=Math.floor(Math.random()*256);
-	// }
+
 	return "rgb("+r+", "+g+", "+b+")";
 }
 	
-	//Hard mode assigning colors:
-// function hardMode(str){
-// 	r=str[4];
-// 	g=str[7];
-// 	b=str[10];
-
-// }
-
-
-
 	//Assigning random colors to each square:
 function assignColor(mode){
 	var arr=[];
@@ -249,28 +210,25 @@ function resetColors(arr,mode){
 	return arr;
 }
 
-// Resetting number of hearts:
-function resetHeartsNum(){
-	idHeart.forEach(function(heart){
-		heart.classList.remove("invisible");
-	})
+//Paint x back
+function timesColor(mode,arr){
+	for(var i =3;i<6;i++){
+		if(mode==="easy"){
+			arr[i].style.color="#232323";
+		}else{
+			arr[i].style.color="#e54751";
+		}
+	}
 }
+
+
 
 //Resetting everything after the game is over.
 function resetEverthing(){
-	// newColor.addEventListener("mouseenter", function(){
-	// 	newColor.style.color="white";
-	// 	newColor.style.backgroundColor="#e577a5";
-	// });
-	// newColor.addEventListener("mouseleave", function(){
-	// 	newColor.style.color="#e577a5";
-	// 	newColor.style.backgroundColor="white";
-	// });
-
-
-	// message.style.color="#e577a5";
-	// easyM.style.color="#e577a5";
-	// hardM.style.color="#e577a5";
+	idHeart.forEach(function(heart){
+		heart.classList.remove("invisible");
+	})
+	title.style.backgroundColor="#05b1b7";
 	correct=0;
 	container.classList.remove("invisible");
 	life.classList.remove("invisible");
@@ -279,14 +237,3 @@ function resetEverthing(){
 	normal.classList.remove("gg");
 }
 
-//Resetting buttonColor
-// function resetButtonColor(btn,colorVal){
-// 	btn.addEventListener("mouseenter", function(){
-// 		btn.style.color="white";
-// 		btn.style.backgroundColor=colorVal;
-// 	});
-// 	btn.addEventListener("mouseleave", function(){
-// 		btn.style.color=colorVal;
-// 		btn.style.backgroundColor="white";
-// 	});
-// }
