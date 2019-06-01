@@ -204,6 +204,7 @@ function assignColor(mode){
 	return arr;
 }
 
+//Assigning new colors to all tiles.
 function resetColors(arr,mode){
 	arr=[];
 	arr=assignColor(mode);
